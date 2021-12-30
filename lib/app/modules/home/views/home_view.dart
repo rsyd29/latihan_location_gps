@@ -8,14 +8,73 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('HomeView'),
-        centerTitle: true,
-      ),
+      backgroundColor: Colors.black38,
       body: Center(
-        child: Text(
-          'HomeView is working',
-          style: TextStyle(fontSize: 20),
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: ListView(
+            children: [
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.location_on,
+                    color: Colors.amber,
+                    size: 40,
+                  ),
+                  SizedBox(
+                    height: 4,
+                  ),
+                  Text(
+                    'User Location',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 30,
+                      decoration: TextDecoration.underline,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Obx(
+                    () => Text(
+                      controller.latitude.value,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 25,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 6,
+                  ),
+                  Obx(
+                    () => Text(
+                      controller.longitude.value,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 25,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 6,
+                  ),
+                  Obx(
+                    () => Text(
+                      controller.address.value,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 25,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
